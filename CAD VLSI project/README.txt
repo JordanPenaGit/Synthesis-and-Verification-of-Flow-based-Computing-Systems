@@ -29,9 +29,11 @@ nodes 7
 6 -1 -1 1
 7 -1 -1 0
 The first line specifies the number of unique Boolean variables. The second line specifies the number of nodes N in the BDD. The subsequent N lines describe the N nodes in the BDD.
-For the internal nodes, the four numbers denote the node_id, left_child_node_id, right_child_node_id, and the decision_variable_id. The left_child is the positive branch in the BDD with respect to the Boolean variable decision_variable_id. The decision_variable_id for xi is i. The first line "1 2 7 1" specifies that the node labeled "1" represents a decision on the variable x1 with the positive edge pointing to node 2 and the negative edge pointing to node 7. For the terminal nodes, the four numbers denote node_id, -1, -1, function_output. The "-1" basically indicates that there are no child nodes. The function_output indicates the Boolean 1 or Boolean 0. 
+For the internal nodes, the four numbers denote the node_id, left_child_node_id, right_child_node_id, and the decision_variable_id. The left_child is the positive branch in the BDD with respect to the Boolean variable decision_variable_id. The decision_variable_id for xi is i. 
+The first line "1 2 7 1" specifies that the node labeled "1" represents a decision on the variable x1 with the positive edge pointing to node 2 and the negative edge pointing to node 7. For the terminal nodes, the four numbers denote node_id, -1, -1, function_output. The "-1" basically indicates that there are no child nodes. The function_output indicates the Boolean 1 or Boolean 0. 
 
-So, within the code, after taking the variables of how many variables there are, we create a 2^n truth table. With every possible combination, we run each scenario through the BDD and gives us a result. For example, we have 1001. 1 will lead us to 2 (the positive branch) , at 2 we have 0 (negative branch) so we take 4. 4 we have 0 again which leads us to 7. At 7, since they have no children, we end it at the number on the 4th column, so 0. We save all of these results for later in a text file.
+So, within the code, after taking the variables of how many variables there are, we create a 2^n truth table. With every possible combination, we run each scenario through the BDD and gives us a result. 
+For example, we have 1001. 1 will lead us to 2 (the positive branch) , at 2 we have 0 (negative branch) so we take 4. 4 we have 0 again which leads us to 7. At 7, since they have no children, we end it at the number on the 4th column, so 0. We save all of these results for later in a text file.
 
 
 Xbar.java
